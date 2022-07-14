@@ -1,8 +1,15 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"wucms-gin/core"
+	"wucms-gin/global"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
+	global.GVA_VP = core.Viper() // 初始化Viper
+
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
